@@ -1,21 +1,25 @@
 import { useState } from "react";
 import styled from "styled-components";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 function App() {
+  const [showPassword, setShowPassword] = useState(false);
+  console.log(showPassword)
   const Container = styled.div`
     max-width: 1280px;
     margin: 100px auto;
-    
-    padding:10px;
+
+    padding: 10px;
     @media (min-width: 1024px) {
       display: flex;
       justify-items: center;
-      border:2px solid #1575a7;
+      border: 2px solid #1575a7;
       gap: 60px;
     }
   `;
   const InnerDiv1 = styled.div`
     width: 100%;
-    padding:20px;
+    padding: 20px;
     @media (min-width: 1024px) {
       width: 40%;
     }
@@ -33,13 +37,14 @@ function App() {
   `;
   const FormContainer = styled.div`
     width: 90%;
-    margin:0 auto;
+    margin: 0 auto;
   `;
   const Heading = styled.h1`
     text-align: center;
   `;
   const InputContainer = styled.div`
     margin-top: 20px;
+    position: relative;
   `;
 
   const Label = styled.label`
@@ -67,6 +72,7 @@ function App() {
 
   const ChangePassword = styled.p`
     color: #f89c41;
+    cursor: pointer;
   `;
   const TermsAndConditionsContainer = styled.div`
     display: flex;
@@ -75,6 +81,7 @@ function App() {
   const TermsAndConditionsLabel = styled.label`
     color: #f89c41;
     text-decoration: underline;
+    cursor: pointer;
   `;
 
   const AgreeToText = styled.span`
@@ -101,13 +108,25 @@ function App() {
     justify-content: center;
   `;
   const LastText = styled.p`
-  font-weight: bold;
-  `
+    font-weight: bold;
+  `;
   const SignUpText = styled.p`
-  font-weight:bold;
-  color: #f89c41;
-  text-decoration: underline;
-  `
+    font-weight: bold;
+    color: #f89c41;
+    cursor: pointer;
+    text-decoration: underline;
+  `;
+
+  const ViewIcon = styled.div`
+    position: absolute;
+    right: 0px;
+    bottom: 2.5px;
+    cursor: pointer;
+  `;
+
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <>
       <Container>
@@ -126,7 +145,14 @@ function App() {
             </InputContainer>
             <InputContainer>
               <Label htmlFor="password">Password:</Label>
-              <Input type="password" id="password" placeholder="Password" />
+              <Input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                placeholder="Password"
+              />
+              <ViewIcon onClick={handlePasswordVisibility}>
+                {showPassword ? <VisibilityOffIcon  /> : <RemoveRedEyeIcon  />}
+              </ViewIcon>
             </InputContainer>
             <CheckboxPasswordContainer>
               <CheckBoxContainer>
