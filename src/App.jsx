@@ -9,7 +9,7 @@ function App() {
     @media (min-width: 1024px) {
       display: flex;
       justify-items: center;
-      border:2px solid ;
+      border:2px solid #1575a7;
       gap: 60px;
     }
   `;
