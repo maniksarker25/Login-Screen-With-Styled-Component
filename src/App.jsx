@@ -124,6 +124,7 @@ function App() {
     cursor: pointer;
   `;
 
+  // handle password visibility
   const handlePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
