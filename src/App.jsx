@@ -95,6 +95,19 @@ function App() {
     cursor: pointer;
     border: none;
   `;
+  const LastContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `;
+  const LastText = styled.p`
+  font-weight: bold;
+  `
+  const SignUpText = styled.p`
+  font-weight:bold;
+  color: #f89c41;
+  text-decoration: underline;
+  `
   return (
     <>
       <Container>
@@ -109,11 +122,11 @@ function App() {
             <Heading>Login</Heading>
             <InputContainer>
               <Label htmlFor="loginId">Login ID:</Label>
-              <Input type="text" id="loginId" />
+              <Input type="text" id="loginId" placeholder="Inter Login Id" />
             </InputContainer>
             <InputContainer>
               <Label htmlFor="password">Password:</Label>
-              <Input type="password" id="password" />
+              <Input type="password" id="password" placeholder="Password" />
             </InputContainer>
             <CheckboxPasswordContainer>
               <CheckBoxContainer>
@@ -132,6 +145,10 @@ function App() {
             <ButtonContainer>
               <LoginButton>Login</LoginButton>
             </ButtonContainer>
+            <LastContainer>
+              <LastText>Don't have any account?</LastText>
+              <SignUpText>Register Here</SignUpText>
+            </LastContainer>
           </FormContainer>
         </InnerDiv2>
       </Container>
